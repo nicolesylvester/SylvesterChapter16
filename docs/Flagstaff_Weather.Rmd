@@ -1,0 +1,41 @@
+---
+title: "Flagstaff_Weather"
+author: "Nicole Sylvester"
+date: "2023-11-28"
+output: html_document
+---
+
+This Rmarkdown file will do the analysis.
+
+```{r setup, include=FALSE}
+library(SylvesterChapter16)
+library(ggplot2)
+library(tidyverse)
+```
+
+```{r}
+Flagstaff_Weather$DATE <- as.Date(Flagstaff_Weather$DATE)
+
+```
+
+```{r}
+ggplot(Flagstaff_Weather, aes(x=DATE, y=TMAX)) + geom_point() +
+  scale_x_date(breaks = "5 year", date_labels = "%Y")
+```
+
+```{r}
+ggplot(Flagstaff_Weather, aes(x=DATE, y=PRCP)) +
+  geom_point() +
+  scale_x_date(breaks = "5 year", date_labels = "%Y")
+```
+```{r}
+ggplot(Flagstaff_Weather, aes(x=DATE, y=SNOW)) +
+  geom_point() +
+  scale_x_date(breaks = "5 year", date_labels = "%Y")
+```
+```{r}
+ggplot(Flagstaff_Weather, aes(x=DATE, y=TMIN)) +
+  geom_point() +
+  scale_x_date(breaks = "5 year", date_labels = "%Y")
+```
+
